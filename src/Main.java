@@ -62,9 +62,13 @@ public class Main {
     }
 
     public static void deletingNonZippedFiles(List<String> fileNames, boolean isZipped) {
-        for (String name : fileNames) {
-            File file = new File(name);
-            file.deleteOnExit();
+        if (isZipped) {
+            for (String name : fileNames) {
+                File file = new File(name);
+                file.deleteOnExit();
+            }
+        } else {
+            System.out.println("Save files into archive!:)");
         }
     }
 }
